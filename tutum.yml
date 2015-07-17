@@ -1,3 +1,6 @@
+#These two parts are all you need
+
+#The first the client goes on every machine that needs access to the /shared directory
 fsclient:
   image: vizzbuzz/rsync-store-client
   deployment_strategy: every_node
@@ -6,6 +9,8 @@ fsclient:
   volumes:
     - /shared
 
+# The second the server should only go on one machine.
+# It makes sense to back up this directory regularly!
 
 fsserver:
   image: vizzbuzz/rsync-store-server
@@ -13,6 +18,9 @@ fsserver:
     - /var/rsync-server:/shared:rw
 
 
+#Then any container which wants to make use of the /shared directory just uses the volumes_from: as shown in the examples below
+
+# This part is just to show you it working
 test:
   image: alpine
   volumes_from:
