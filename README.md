@@ -1,11 +1,8 @@
 NB: experimental, use at your own risk :-)
 
-
+This is a simple (and experimental) cross-host shared docker volume. It exists primarily as a PoC at the moment.
 
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
-
-
-
 
 Client: [![Docker Registry](https://img.shields.io/docker/pulls/vizzbuzz/rsync-store-client.svg)](https://registry.hub.docker.com/u/vizzbuzz/rsync-store-client)
 
