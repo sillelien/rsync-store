@@ -15,6 +15,25 @@ fsserver:
 
 test:
   image: alpine
-  volumes-from:
+  volumes_from:
     - fsclient
-  command: "echo test > /var/share/test.txt"
+  command: ash -c "while true; do date > /shared/date_$(hostname).txt; sleep 10; done"
+
+test2:
+  image: alpine
+  volumes_from:
+    - fsclient
+  command: ash -c "while true; do date > /shared/date_$(hostname).txt; sleep 10; done"
+
+test3:
+  image: alpine
+  volumes_from:
+    - fsclient
+  command: ash -c "while true; do date > /shared/date_$(hostname).txt; sleep 10; done"
+
+testwatch:
+  image: alpine
+  volumes_from:
+    - fsclient
+  command: ash -c "while true; do ls -la /shared/; sleep 10; done"
+
