@@ -39,6 +39,8 @@ test3:
     - fsclient
   command: ash -c "while true; do date > /shared/date_$(hostname).txt; sleep 10; done"
 
+
+# This is the one who's logs you should watch, they show the files coming in from the other machines.
 testwatch:
   image: alpine
   volumes_from:
