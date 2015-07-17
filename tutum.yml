@@ -1,5 +1,5 @@
 fsclient:
-  image: vizzbuzz/rsync-store
+  image: vizzbuzz/rsync-store-client
   deployment_strategy: every_node
   links:
     - fsserver:server
