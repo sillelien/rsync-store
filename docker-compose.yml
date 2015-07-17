@@ -1,0 +1,27 @@
+fsclient:
+  build: client
+  links:
+    - fsserver:server
+  volumes:
+    - tmp/client:/shared:rw
+
+fsserver:
+  build: server
+  volumes:
+    - tmp/server:/shared:rw
+
+
+
+test:
+  image: alpine
+  volumes_from:
+    - fsclient
+  command: ash -c "while true; do date > /shared/date_$(hostname).txt; sleep 10; done"
+
+
+test2:
+  image: alpine
+  volumes_from:
+    - fsclient
+  command: ash -c "while true; do ls -la /shared/; sleep 10; done"
+

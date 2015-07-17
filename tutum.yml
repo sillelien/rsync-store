@@ -1,0 +1,20 @@
+fsclient:
+  image: vizzbuzz/rsync-store
+  deployment_strategy: every_node
+  links:
+    - fsserver:server
+  volumes:
+    - /shared
+
+
+fsserver:
+  image: vizzbuzz/rsync-store-server
+  volumes:
+    - /var/rsync-server:/shared:rw
+
+
+test:
+  image: alpine
+  volumes-from:
+    - fsclient
+  command: "echo test > /var/share/test.txt"
