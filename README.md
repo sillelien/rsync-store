@@ -1,6 +1,6 @@
 NB: experimental, use at your own risk :-)
 
-This is a simple (and experimental) cross-host shared docker volume. It exists primarily as a PoC at the moment.
+This is a simple (and experimental) cross-host shared docker volume. It exists primarily as a PoC at the moment. Please read the tutum.yml to understand it.
 
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
 
