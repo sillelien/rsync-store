@@ -1,6 +1,8 @@
 NB: experimental, use at your own risk :-)
 
-This is a simple (and experimental) cross-host shared docker volume. It exists primarily as a PoC at the moment. Please read the tutum.yml to understand it.
+This is a simple (and experimental) cross-host shared Docker volume. It exists primarily as a PoC at the moment. Please read the tutum.yml to understand it.
+
+Make sure an instance of the client is running on each node that you require the files on. Make sure they are linked to the server and that the server is on one node only.
 
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
 
