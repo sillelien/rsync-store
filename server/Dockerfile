@@ -9,4 +9,5 @@ RUN /tmp/build.sh
 
 
 COPY rsync.sh /etc/services.d/rsync/run
-RUN chmod 755 /etc/services.d/rsync/run
+COPY cleanup.sh /etc/services.d/cleanup/run
+RUN chmod 755 /etc/services.d/rsync/run /etc/services.d/cleanup/run

@@ -18,7 +18,7 @@ server_port=${SERVER_PORT_873_TCP_PORT}
 
 mkdir -p /.synctmp
 
-rsync --port=${server_port} -r --quiet --delete-after --temp-dir=.synctmp  --backup --backup-dir=.syncbackup/from_server/$(date +%s)  --exclude ".sync*" root@${server}::share /shared/
-inotifywait -e modify -e create -e move -e delete -e attrib -e close_write -t 3600 -r /shared/
+rsync --port=${server_port} -r --quiet --delete-after --temp-dir=.synctmp  --timeout=60 --checksum --backup --backup-dir=.syncbackup/from_server/$(date +%m/%d/%H:%M:%S)  --exclude ".sync*" root@${server}::share /shared/
+inotifywait -e modify -e create -e move -e delete -e attrib -e close_write -t 60 -r /shared/
 touch ${local_dir}/.synclast
-rsync --port=$server_port -r --quiet --delete-after --temp-dir=.synctmp  --timeout=60 --backup --backup-dir=.syncbackup/$(hostname)/$(date +%s)  --exclude ".sync*"   /shared/  root@${server}::share
+rsync --port=$server_port -r --quiet --delete-after --temp-dir=.synctmp   --checksum --timeout=60 --backup --backup-dir=.syncbackup/$(hostname)/$(date +%m/%d/%H:%M:%S)  --exclude ".sync*"   /shared/  root@${server}::share
