@@ -2,7 +2,7 @@
 
 #The first the client goes on every machine that needs access to the /shared directory
 fsclient:
-  image: vizzbuzz/rsync-store-client
+  image: sillelien/rsync-store-client
   deployment_strategy: every_node
   links:
     - fsserver:server
@@ -13,7 +13,7 @@ fsclient:
 # It makes sense to back up this directory regularly!
 
 fsserver:
-  image: vizzbuzz/rsync-store-server
+  image: sillelien/rsync-store-server
   volumes:
     - /var/rsync-server:/shared:rw
 
